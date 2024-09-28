@@ -24,7 +24,7 @@ def emotion_detector(text_to_analyse):
     formatted_response = json.loads(response.text)
 
     # Extract the emotion scores from the first prediction
-    emotions = data["emotionPredictions"][0]["emotion"]
+    emotions = formatted_response["emotionPredictions"][0]["emotion"]
 
     # Find the dominant emotion
     dominant_emotion = max(emotions, key=emotions.get)
