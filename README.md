@@ -18,8 +18,9 @@ A simple Flask-based web application that detects emotions from user-provided te
 ## Prerequisites
 
 - Python 3.11
-- Flask (`pip install flask`)
-- Requests library (`pip install requests`)
+- Flask 
+- Requests library
+- IBM Watson NLP libraries
 
 ## Setup
 
