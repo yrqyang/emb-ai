@@ -17,14 +17,21 @@ def sent_analyzer():
     # Pass the text to the emotion_detection function
     output = emotion_detector(text_to_analyze)
 
-    # Return a formatted string with f-strings for dynamic values
-    response = (f"For the given statement, the system response is 'anger': {output['anger']}, 'disgust': {output['disgust']}, "
-                f"'fear': {output['fear']}, 'joy': {output['joy']}, and 'sadness': {output['sadness']}. "
-                f"The dominant emotion is <b>{output['dominant_emotion']}</b>")
+    # Check if the label is None, indicating an error or invalid input
+    if output['dominant_emotion'] == None:
+        response = "Invalid text! Please try again!."
+    else: 
+        # Return a formatted string with f-strings for dynamic values
+        response = (f"For the given statement, the system response is 'anger': {output['anger']}, 'disgust': {output['disgust']}, "
+                    f"'fear': {output['fear']}, 'joy': {output['joy']}, and 'sadness': {output['sadness']}. "
+                    f"The dominant emotion is <b>{output['dominant_emotion']}</b>")
     return response
 
 @app.route("/")
 def render_index_page():
+    """
+    html render
+    """
     return render_template('index.html')
 
 if __name__ == "__main__":
